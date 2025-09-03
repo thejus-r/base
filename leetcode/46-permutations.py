@@ -17,3 +17,4 @@ def permute(nums: List[int]) -> List[List[int]]:
 
 print("Example 1:", permute([1,2,3]))
 print("Example 2:", permute([0,1]))
+print("Example 3:", permute([1,1,3]))
