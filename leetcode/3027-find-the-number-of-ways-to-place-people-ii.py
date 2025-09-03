@@ -1,27 +1,23 @@
 from typing import List
-def number_of_pairs(points: List[List[int]])  -> int:
-    count = 0
+def numberOfPairs(points: List[List[int]])  -> int:
+    points.sort(key=lambda p: (p[0], -p[1]))
     n = len(points)
+    ans = 0
+
     for i in range(n):
-        ax, ay = points[i]
-        for j in range(n):
-            if i == j:
-                continue
-            bx, by = points[j]
-            if not (ax <= bx and ay >= by):
-                continue
-            found = False
-            for k in range(n):
-                if k == i or j == k:
-                    continue
-                cx, cy = points[k]
-                if ax <= cx <= bx and ay >= cy >= by:
-                    found = True
-            if not found:
-                count+= 1
+        pointA = points[i]
+        yMax = -float('inf')
 
-    return count
+        for j in range(i + 1, n):
+            pointB = points[j]
 
-print( "Example 1", number_of_pairs([[1,1],[2,2],[3,3]]))
-print( "Example 2", number_of_pairs([[6,2],[4,4],[2,6]]))
-print( "Example 3", number_of_pairs([[3,1],[1,3],[1,1]]))
+            if pointA[1] >= pointB[1]:
+                if pointB[1]> yMax:
+                    ans += 1
+                    yMax = pointB[1]
+
+    return ans
+
+print( "Example 1", numberOfPairs([[1,1],[2,2],[3,3]]))
+print( "Example 2", numberOfPairs([[6,2],[4,4],[2,6]]))
+print( "Example 3", numberOfPairs([[3,1],[1,3],[1,1]]))
