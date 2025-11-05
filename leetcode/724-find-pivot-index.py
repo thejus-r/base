@@ -1,3 +1,7 @@
+# 724. Find Pivot Index
+# Easy
+
+
 def pivotIndex(nums: list[int]) -> int:
     leftSum = nums.copy()
     rightSum = nums.copy()
@@ -15,7 +19,6 @@ def pivotIndex(nums: list[int]) -> int:
     return -1
 
 
-
-print("Example 1: ", pivotIndex([1, 7, 3, 6, 5, 6])) # 3
-print("Example 2: ", pivotIndex([1, 2, 3])) # -1
-print("Example 3: ", pivotIndex([2, 1, -1])) # 0
+print("Example 1: ", pivotIndex([1, 7, 3, 6, 5, 6]))  # 3
+print("Example 2: ", pivotIndex([1, 2, 3]))  # -1
+print("Example 3: ", pivotIndex([2, 1, -1]))  # 0
