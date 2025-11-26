@@ -1,6 +1,8 @@
 from sortedcontainers import SortedList
+
+
 def main():
-    l = [3,2,1,0,8,5,3,1,4,7,2,1,0]
+    l = [3, 2, 1, 0, 8, 5, 3, 1, 4, 7, 2, 1, 0]
     sl = SortedList(l)
     print(sl)
 
@@ -12,4 +14,6 @@ def main():
     print("Bisect Right", idx, "length", len(sl))
     return
 
+
 main()
+
