@@ -16,7 +16,7 @@ def countCompleteComponents(n: int, edges: list[list[int]]) -> int:
 
     def dfs(v, res: list[list[int]]):
         if v in visit:
-            return
+            return res
 
         visit.add(v)
 
