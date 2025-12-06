@@ -8,7 +8,7 @@ def parseInput():
             for line in file_object:
                 cleanLine = line.strip("\n")
                 listOfStr = list(cleanLine)
-                lines.append(listOfStr)
+                lines.append(cleanLine)
 
     except FileNotFoundError:
         print(f"Error: The file '{filename}' was not found.")
