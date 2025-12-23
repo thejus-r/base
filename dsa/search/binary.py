@@ -1,5 +1,4 @@
-from typing import List
-def binarySearch(nums: List[int], target: int) -> int:
+def binarySearch(nums: list[int], target: int) -> int:
     lo, hi = 0, len(nums) - 1
 
     while lo <= hi:
@@ -15,8 +14,24 @@ def binarySearch(nums: List[int], target: int) -> int:
     return -1
 
 
-list1 = [2, 3, 4, 10, 40]
-print(binarySearch(list1, 10))
+# binary search with right bias
+def binarySearchWithRightBias(nums: list[int], target: int) -> int:
+    lo, hi = 0, len(nums)
 
-list2= [2, 3, 4, 10, 40, 50]
-print(binarySearch(list2, 50))
+    while lo < hi:
+        mid = lo + (hi - lo) // 2
+
+        if nums[mid] < target:
+            lo = mid + 1
+        else:
+            hi = mid
+
+    return lo
+
+
+list3 = [10, 40, 50, 50, 50, 50, 100]
+idx = binarySearchWithRightBias(list3, 50)
+print(list3[idx] == 50)
+list3.insert(idx, 50)
+print("idx: ", idx, " len:", len(list3))
+print("list: ", list3)

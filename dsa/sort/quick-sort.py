@@ -1,28 +1,31 @@
-from typing import List
-def sort(nums: List[int]) -> List[int]:
-    quickSort(nums, 0, len(nums)-1)
-    return nums
+def partition(arr: list[int], low: int, high: int) -> int:
+    pivot = arr[high]
+    i = low - 1
 
-
-def quickSort(nums, lo, hi):
-   if lo < hi:
-      pi = partition(nums, lo, hi)
-
-      quickSort(nums, lo, pi-1)
-      quickSort(nums, pi+ 1, hi)
-
-def partition(nums, lo, hi):
-    pivot = nums[hi]
-
-    i = lo - 1
-    for j in range(lo, hi):
-        if nums[j] < pivot:
+    for j in range(low, high):
+        if arr[j] < pivot:
             i += 1
-            swap(nums, i, j)
-    swap(nums, i + 1, hi)
+            swap(arr, i, j)
+
+    swap(arr, i + 1, high)
     return i + 1
 
-def swap(nums, i, j):
-    nums[i], nums[j] = nums[j], nums[i]
 
-print("Example 1:", sort([9,8,7,6,5,4,3,2,1]))
+def swap(arr: list[int], i: int, j: int) -> None:
+    arr[i], arr[j] = arr[j], arr[i]
+
+
+def sort(arr: list[int], low: int, high: int):
+    if low < high:
+        pi = partition(arr, low, high)
+
+        sort(arr, low, pi - 1)
+        sort(arr, pi + 1, high)
+
+
+def quick_sort(arr: list[int]) -> list[int]:
+    sort(arr, 0, len(arr) - 1)
+    return arr
+
+
+print("Sorted: ", quick_sort([5, 4, 2, 5, 3, 1, 4, -1]))

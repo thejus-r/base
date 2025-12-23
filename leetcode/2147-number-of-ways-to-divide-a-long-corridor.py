@@ -13,30 +13,28 @@ Intuition:
         - the corridor has no seats, so its not possible to divide
         - we return 0 in both cases.
 
-
 """
 
 
 def numberOfWays(corridor: str) -> int:
     # odd number of seats
-    if corridor.count("S") % 2 != 0:
-        return 0
 
-    # no seats are present
     if "S" not in corridor:
         return 0
 
-    INF = 10**20
+    if corridor.count("S") % 2 != 0:
+        return 0
+
     mod = 10**9 + 7
+    INF = 10**20
 
-    current_seats = 0
     current_plants = -INF
-
+    current_seats = 0
     count = 1
-
     for c in corridor:
         if c == "S":
             current_seats += 1
+
             if current_seats == 2:
                 current_seats = 0
                 current_plants = 0
