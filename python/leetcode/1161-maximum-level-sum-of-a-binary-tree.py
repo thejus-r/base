@@ -1,14 +1,7 @@
-from typing import Optional
+from dsa.binary_tree import TreeNode
 
 
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
-
-
-def maxLevelSum(root: Optional[TreeNode]) -> int:
+def maxLevelSum(root: TreeNode | None) -> int:
     if root is None:
         return 0
 
@@ -43,3 +36,5 @@ def maxLevelSum(root: Optional[TreeNode]) -> int:
         if level_sum > max_sum:
             max_sum = level_sum
             maximal_sum_level = lvl + 1
+
+    return maximal_sum_level
