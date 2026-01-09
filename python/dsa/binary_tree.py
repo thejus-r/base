@@ -14,8 +14,8 @@ class TreeNode:
 
 
 class BinaryTree:
-    def __init__(self) -> None:
-        self.__root: TreeNode | None = None
+    def __init__(self, node: TreeNode | None  = None) -> None:
+        self.__root: TreeNode | None = node
 
     def insert(self, data: int):
         newNode = TreeNode(data)
@@ -85,6 +85,31 @@ class BinaryTree:
             current_level += 1
 
         return res
+
+def build_tree(values: list[int]):
+    if not values:
+        return None
+
+    root = TreeNode(values[0])
+    queue = deque([root])
+    i = 1
+    while i < len(values):
+        # Get the current parent from the queue
+        current = queue.popleft()
+
+        # --- Process Left Child ---
+        if i < len(values) and values[i] is not None:
+            current.left = TreeNode(values[i])
+            queue.append(current.left)
+            i += 1
+
+        # --- Process Right Child ---
+        if i < len(values) and values[i] is not None:
+            current.right = TreeNode(values[i])
+            queue.append(current.right)
+            i += 1
+
+    return root
 
 
 if __name__ == "__main__":
