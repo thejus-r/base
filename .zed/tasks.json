@@ -1,0 +1,8 @@
+[
+  {
+    "label": "Compile and Run C++",
+    "command": "clang++ -std=c++23 \"$ZED_FILE\" -o /tmp/zed_out && echo \"\n--- Output ---\" && /tmp/zed_out",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+  },
+]
