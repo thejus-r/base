@@ -13,19 +13,20 @@ using namespace std;
 class Solution {
     private:
     bool isCyclic(int node, vector<bool>& vis, vector<bool>& path, const vector<vector<int>>& adj) {
-        vis[node] = path[node] = true;
+        vis[node] = path[node] = true; // mark visited and current path
 
-        for (const int next: adj[node]) {
-            if (!vis[next]) {
+        for (int next: adj[node]){
+            if (!vis[next]) { // not visited
                 if (isCyclic(next, vis, path, adj)) {
-                    return true;
+                    return true; // early return, when found cyclic in recursion
                 }
-            } else if (path[next]) {
-                return true;
+            } else if (path[next]) { // we have already visited this node, in current path
+                return true; // detected cycle
             }
         }
-        path[node] =false;
-        return true;
+
+        path[node] = false; // revert state for backtracking
+        return false; // no cycles is found
     }
     public:
     bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
@@ -35,6 +36,12 @@ class Solution {
 
         for (const vector<int> pre: prerequisites){
             adj[pre[1]].push_back(pre[0]);
+        }
+
+        for (int n = 0; n < numCourses; n ++) {
+            if (!vis[n] && isCyclic(n, vis, path, adj)) {
+                return false;
+            }
         }
 
         return true;
