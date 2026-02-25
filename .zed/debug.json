@@ -1,0 +1,11 @@
+[
+  {
+    "label": "Debug",
+    "build": {
+      "command": "clang++ -std=c++23 \"$ZED_FILE\" -o /tmp/zed_out",
+    },
+    "program": "/tmp/zed_out",
+    "request": "launch",
+    "adapter": "CodeLLDB",
+  },
+]
