@@ -4,8 +4,7 @@
     "adapter": "CodeLLDB",
     "request": "launch",
     "build": {
-      "command": "clang++ -std=c++23",
-      "args": ["-g", "\"$ZED_FILE\"", "-o", "/tmp/zed_out"],
+      "command": "clang++ -g -std=c++23 \"$ZED_FILE\" -o /tmp/zed_out",
     },
     "program": "/tmp/zed_out",
   },
