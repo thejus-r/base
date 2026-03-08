@@ -17,7 +17,7 @@ class KthLargest {
             this->k = k;
 
             for (int n: nums) {
-                q.push(k);
+                minHeap.push(k);
             }
         }
 
