@@ -5,4 +5,14 @@
     "use_new_terminal": false,
     "allow_concurrent_runs": false,
   },
+  {
+    "label": "Run CF",
+    "command": "g++-15 -std=c++23 -O2 \"$ZED_FILE\" -o  \"$ZED_DIRNAME/$ZED_STEM\" && \"$ZED_DIRNAME/$ZED_STEM\" < \"$ZED_DIRNAME/input.txt\" > \"$ZED_DIRNAME/output.txt\"",
+
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "never",
+    "show_summary": false,
+    "show_command": false,
+  },
 ]
