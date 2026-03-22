@@ -10,9 +10,8 @@
       },
       "presendation": {
         "echo": true,
-        "reveal": "always",
         "focus": false
-        "panel": "shared"
+        "reveal": "always",
       },
       "problemMatcher": [
         "$gcc"
